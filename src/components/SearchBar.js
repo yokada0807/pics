@@ -3,6 +3,9 @@ import React from 'react';
 class SearchBar extends React.Component {
 
   state = {term: '' };
+  // constructor() {
+  //   this.onFormSubmit = this.onFormSubmit.bind(this)
+  // }
 
   // onIinputChange(event) {
   //   console.log(event.target.value)
@@ -11,11 +14,19 @@ class SearchBar extends React.Component {
   // onInputClick() {
   //   console.log('Input was clicked')
   // }
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    // prevent default behavior like refreshing page
+
+    console.log(this.state.term);
+  }
 
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
+          {/* this in "onFormSubmit" is undefined
+          It should have been called like somevalue.this.onFormSubmit */}
           <div className="field">
             <label>Image Search</label>
             <input
@@ -24,7 +35,7 @@ class SearchBar extends React.Component {
               onChange={(e) => this.setState({ term: e.target.value })}
               // argument is input instead of ()
               // onClick={this.onInputClick}
-            />         
+            />
             {/*  */}
           </div>
         </form>
