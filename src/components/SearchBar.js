@@ -18,7 +18,10 @@ class SearchBar extends React.Component {
     event.preventDefault();
     // prevent default behavior like refreshing page
 
-    console.log(this.state.term);
+    // console.log(this.state.term);
+
+    this.props.onSubmit(this.state.term);
+
   }
 
   render() {
