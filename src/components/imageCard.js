@@ -11,7 +11,7 @@ class ImageCard extends React.Component {
     console.log("componentDidMount")
     console.log(this.imageRef);
     console.log(this.imageRef.current.clientHeight);
-    this.imageRef.current.addEventListner('load', this.setSpans);
+    this.imageRef.current.addEventListener('load', this.setSpans);
   }
 
   setSpans = () => {
